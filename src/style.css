@@ -1,0 +1,485 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'ZCOOL XiaoWei', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body{
+    grid-template-rows: repeat(3, 1fr) 0.5fr;
+    overflow-x:hidden;
+    color: black;
+}
+
+a{ text-decoration: none; color: inherit; }
+
+.container-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.container-flex{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+/* 
+██╗  ██╗███████╗ █████╗ ██████╗ ███████╗██████╗ 
+██║  ██║██╔════╝██╔══██╗██╔══██╗██╔════╝██╔══██╗
+███████║█████╗  ███████║██║  ██║█████╗  ██████╔╝
+██╔══██║██╔══╝  ██╔══██║██║  ██║██╔══╝  ██╔══██╗
+██║  ██║███████╗██║  ██║██████╔╝███████╗██║  ██║
+╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+ */
+
+header#main-header{
+   grid-template-rows: 1fr 11fr;
+} 
+
+nav.nav-bar{
+    z-index: 1;
+    background-image: linear-gradient(rgba(255, 235, 204, .9), rgba(252,230,195,.9));
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,.36);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+ul.nav-items{
+    list-style: none;
+    width: 61%;
+    height: min-content;
+    align-items: center;
+    justify-content: space-between;
+}
+ul.nav-items li{
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    padding: 1%;
+    font-size: 1.4em;
+    transition: cubic-bezier(0.47, 0, 0.745, 0.715);
+    transition-duration: 300ms;
+}
+div.hero-image{
+    grid-template-rows: 1fr;
+    font-size: 1.2em;
+}
+
+div.hero-image h1 { margin-top: 0.5%; }
+
+.hero-image div.bg-image,
+.hero-image div.logo{
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    grid-column-start: 1;
+    grid-column-end: span 1;
+}
+
+.hero-image div.bg-image{
+    background-image: url("../_imagens/bg.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.49;
+}
+
+.hero-image div.logo{
+    position: relative;
+    z-index: 1;
+    grid-template-rows: 5.5fr .6fr 1.55fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.hero-image div.logo img{
+    width: auto;
+    height: 18em;
+}
+
+
+.hero-image div.logo h1{
+    text-align: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+div.icon-container{
+    position: relative;
+    width: 25px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+div.icon-scroll{
+    border: 1px solid black;
+    position: absolute;
+    top: 19%;
+    left:25%;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    animation: scroll 2s infinite;
+}
+
+/* 
+███╗   ███╗ █████╗ ██╗███╗   ██╗
+████╗ ████║██╔══██╗██║████╗  ██║
+██╔████╔██║███████║██║██╔██╗ ██║
+██║╚██╔╝██║██╔══██║██║██║╚██╗██║
+██║ ╚═╝ ██║██║  ██║██║██║ ╚████║
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+*/
+
+main.container-grid{
+    background-image: linear-gradient(#EFDFC6, #F1D5AA);
+    box-shadow: 0 7px 10px 0 rgba(0,0,0,.45);
+    grid-template-rows: 3fr 12fr;
+}
+
+main div.cabecalho-produtos{
+    grid-template-rows: 3.6fr 1.4fr;
+    justify-items: center;
+}
+
+main .cabecalho-produtos h2{ align-self: flex-end; }
+
+main div.container-slide{
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+main div.slide-box{
+    background-color: rgb(240, 234, 228);
+    position: relative;
+    width:100%;
+    height: 70%;
+    justify-content: center;
+}
+
+main .slide-box button.arrow{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    margin:auto;
+    width: 3.5%;
+    z-index: 3;
+    animation: arrow 1s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+main .slide-box button.arrow.right{ right: 14%; }
+
+main .slide-box button.arrow.left{
+    left: 14%;
+    animation-name: arrow;
+    animation-direction: alternate-reverse;
+}
+
+main .slide-box .arrow img{
+    padding-top: 3%;
+    width:100%;
+    transition: 300ms;
+}
+
+div.card.container-grid{
+    position: absolute;
+    overflow: hidden;
+    grid-template-rows: min-content min-content;
+    background-color: white;
+    height: 90%;
+    box-shadow: 3px 3px 6px 0 rgba(0,0,0,.5);
+    border: 1px solid rgba(0,0,0,.2);
+    transition: 500ms;
+}
+
+.card img{
+    width: 100%;
+}
+
+.card div.bg-image{
+    background-image:url('../_imagens/card1.jpg');
+    background-repeat: no-repeat; 
+    width: 400px;
+    height: 300px;
+
+}
+
+.card .text{
+    text-align: center;
+    grid-template-rows: auto auto;
+    align-self: center;
+    margin-top: 3%;
+}
+
+.card .text h3{
+    align-self: flex-end;
+    height: min-content;
+    padding: 2% 0%;
+    font-size: 1em;
+}
+
+.card .text p{
+    align-self: center;
+    font-size: 1em;
+    padding:  5%;
+    margin-bottom: 2%;
+    height:fit-content;
+}
+
+main div.cards{
+    position: relative;
+    width: 100%;
+    height:100%;
+}
+
+main .cards{
+    width: auto;
+    height: 100%;
+}
+
+main .cards .hidden{
+    display:none;
+    transition-duration: 0s;
+}
+
+/* 
+███████╗███████╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+██╔════╝██╔════╝██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+███████╗█████╗  ██║        ██║   ██║██║   ██║██╔██╗ ██║
+╚════██║██╔══╝  ██║        ██║   ██║██║   ██║██║╚██╗██║
+███████║███████╗╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+*/
+
+section{
+    height: 100%;
+}
+
+section div.bg-image,
+section article{
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    grid-column-start: 1;
+    grid-column-end: span 1;
+}
+
+section div.bg-image{
+    position: relative;
+    z-index: -1;
+    height: 100%;
+    background-image: url('../_imagens/interior.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+section article{
+    z-index: -1;
+    background-color: rgba(240, 234, 228, 0.9);
+    position: relative;
+    left: 45%;
+    width: 40%;
+    height: 100%;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    justify-items: center;
+}
+
+section article h2{
+    border-bottom: 2px solid black;
+    font-weight: normal;
+    font-size: 1.6em;
+    align-self: center;
+}
+
+section article p{
+    align-self: baseline;
+    padding: 6%;
+    padding-top: 0%; 
+    text-indent: 10%;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    text-align: justify;
+}
+
+/* 
+███████╗ ██████╗  ██████╗ ████████╗███████╗██████╗ 
+██╔════╝██╔═══██╗██╔═══██╗╚══██╔══╝██╔════╝██╔══██╗
+█████╗  ██║   ██║██║   ██║   ██║   █████╗  ██████╔╝
+██╔══╝  ██║   ██║██║   ██║   ██║   ██╔══╝  ██╔══██╗
+██║     ╚██████╔╝╚██████╔╝   ██║   ███████╗██║  ██║
+╚═╝      ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═╝
+*/
+
+footer{
+    background-color: #5A4747;
+    color: white;
+    text-align: center;
+    grid-template-rows: 3fr 1fr;
+    font-size: 1.1em;
+}
+
+footer div.container-flex{
+    justify-content: space-around;
+}
+footer .logo-endereco img{
+    margin: auto;
+    width: 7em;
+}
+
+footer .logo-endereco .endereco{
+    margin-top: 5%;;
+}
+
+footer div.contato {
+    grid-template-rows: repeat(3, 1fr) min-content;
+    width: 15%;
+}
+
+footer .contato h2{
+    padding: 2%;
+    padding-bottom: 2%; 
+}
+
+footer .contato p{
+    align-self: flex-end;
+}
+
+footer .contato img{
+    width: 2.5em;
+    margin: 3%;
+    margin-top: 7%;
+}
+footer #creditos{ font-size: 0.8em;}
+footer a { color: white }
+
+/* 
+█████╗ ███╗   ██╗██╗███╗   ███╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗
+██╔══██╗████╗  ██║██║████╗ ████║██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+███████║██╔██╗ ██║██║██╔████╔██║███████║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
+██╔══██║██║╚██╗██║██║██║╚██╔╝██║██╔══██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
+██║  ██║██║ ╚████║██║██║ ╚═╝ ██║██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║███████║
+╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+*/
+
+@keyframes scroll{
+    0% { opacity: 1; }
+    
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes arrow{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(25%);
+    }
+}
+
+nav ul li:hover{
+
+    background-color:#795C5F;
+    border-radius: 10%;
+    color: rgb(255, 243, 232);
+}
+main .cards > div.card:hover{
+
+    transform: scale(1.2, 1.2);
+    z-index: 4;
+}
+main .slide-box .arrow img:hover{  transform: scale(1.2, 1.2); }
+footer a:hover { color: rgb(41, 219, 250); }
+main .slide-box button.arrow:focus{ outline: none; }
+
+/* 
+███╗   ███╗███████╗██████╗ ██╗ █████╗      ██████╗ ██╗   ██╗███████╗██████╗ ██╗███████╗███████╗
+████╗ ████║██╔════╝██╔══██╗██║██╔══██╗    ██╔═══██╗██║   ██║██╔════╝██╔══██╗██║██╔════╝██╔════╝
+██╔████╔██║█████╗  ██║  ██║██║███████║    ██║   ██║██║   ██║█████╗  ██████╔╝██║█████╗  ███████╗
+██║╚██╔╝██║██╔══╝  ██║  ██║██║██╔══██║    ██║▄▄ ██║██║   ██║██╔══╝  ██╔══██╗██║██╔══╝  ╚════██║
+██║ ╚═╝ ██║███████╗██████╔╝██║██║  ██║    ╚██████╔╝╚██████╔╝███████╗██║  ██║██║███████╗███████║
+╚═╝     ╚═╝╚══════╝╚═════╝ ╚═╝╚═╝  ╚═╝     ╚══▀▀═╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝
+*/
+
+@media screen and (max-width:970px){
+    .hero-image div.logo h1{
+        border: none;
+    }
+    
+    ul.nav-items{
+        width: 80%;
+        justify-content: space-between;
+    }    
+}
+
+@media screen and (min-width: 600px) and (max-width: 970px) {
+    .hero-image div.logo img{
+        width: 20em;
+        height: auto;
+    }
+    .hero-image div.logo h1{
+        border: none;
+    }
+    
+    ul.nav-items{
+        width: 80%;
+        justify-content: space-between;
+    }    
+
+    section article{
+        left: 20%;
+        width: 60%;
+    }
+    
+}
+
+@media screen and (max-width:600px){
+    
+    .hero-image div.logo img{
+        width: auto;
+        height: 70%;
+    }
+
+    main .slide-box button.arrow{
+        width:5%;
+    }
+    main .slide-box button.arrow.right{ right: 5%; }
+    main .slide-box button.arrow.left{ left: 5%; }
+    
+    main .cabecalho-produtos img{
+        width: 80%;
+    }
+
+    section article{
+        position: static;
+        width: 95%;
+        margin:auto;
+    }
+
+    footer{
+        grid-template-rows: 4fr .8fr;
+    }
+    footer .contato-endereco{
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    footer .contato-endereco .contato{
+        width: min-content;
+        margin: 5%;
+    }
+
+    footer .logo-endereco{
+        margin-top: 5%;
+    }
+}
